@@ -2,7 +2,7 @@
 ## 🛡️ Level 1 Project: The Ghost Database
 Phase 1: Detailed Infrastructure Execution
 
-![Architecture Diagram](Architecture.png)
+![Architecture Diagram](../Architecture.png)
 
 ## 1. Resource Group (The Container)
 
@@ -14,7 +14,7 @@ Phase 1: Detailed Infrastructure Execution
    * Region: `Central India` (or your closest region).
 * Click `Review + create -> Create`.
 
-![](Pictures\lab1-01.png)
+![](../Pictures/lab1-01.png)
 
 ## 2. Networking (The Virtual Wires)
 
