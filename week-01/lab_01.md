@@ -2,7 +2,7 @@
 ## 🛡️ Level 1 Project: The Ghost Database
 Phase 1: Detailed Infrastructure Execution
 
-![Architecture Diagram](../Architecture.png)
+![Architecture Diagram](../Pictures/Architecture.png)
 
 ## 1. Resource Group (The Container)
 
