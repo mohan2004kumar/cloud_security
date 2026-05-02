@@ -1,4 +1,34 @@
 
+------------------------------
+## 📘 Project 1 Summary: Network Isolation & Secure Triage
+
+| Feature | Technical Core Concept |
+|---|---|
+| Main Objective | To implement Micro-segmentation and a Bastion/Jumpbox architecture to protect high-value assets (the DB) from the Public Web. |
+| Core Concept: NSG | Stateful Packet Inspection (SPI). In CCNA, you learned ACLs. In Azure, NSGs are "Stateful"—they remember the connection. If you allow traffic in, the return traffic is automatically allowed out. |
+| Core Concept: Pivoting | Tunneling / Administrative Proxy. Instead of exposing every server to the internet, you use a single "Hardened" point (the Web VM) to jump into the private zone. This mimics a VPN or a Proxy. |
+| Network Topology | Hub-and-Spoke (Simplified). You are learning how to route traffic between different subnets while enforcing "Least Privilege" at the network layer. |
+
+------------------------------
+## 🛡️ Why This Project Matters (The "Why")
+
+   1. Attack Surface Reduction: By removing the Public IP from the Database VM, you effectively make it "invisible" to 99% of automated internet scans and brute-force attacks.
+   2. Traffic Control: It forces all administrative traffic through a single, monitorable path. In a real company, we would put an IPS (Intrusion Prevention System) on the Web VM to watch every move an admin makes.
+   3. Blast Radius Limitation: If a hacker compromises your Web Server (Port 80), they still cannot get to your Database easily because the NSG acts as an internal wall between the subnets.
+
+------------------------------
+## 🚀 The Study Tip (CCNA vs. Cloud)
+
+* Subnetting: In CCNA, subnets are about saving IP addresses. In the Cloud, subnets are about Security Boundaries. You put the DB in a different subnet not to save IPs, but so you can put a Wall (NSG) between it and the Web.
+* Default Gateway: In CCNA, you configure this manually. In Azure, it’s a System Route (0.0.0.0/0 via Virtual Network). This is why your "Exfiltration Test" (pinging Google) worked—Azure handles the routing for you automatically.
+
+------------------------------
+## Summary Checklist :
+
+* The "What": I built a two-tier network.
+* The "How": I used VNETs and NSGs to isolate the tiers.
+* The "Why": To prevent direct public access to sensitive data and enforce a secure management path (Pivoting).
+
 ## 🛡️ Level 1 Project: The Ghost Database
 Phase 1: Detailed Infrastructure Execution
 
