@@ -23,11 +23,6 @@
 * Default Gateway: In CCNA, you configure this manually. In Azure, it’s a System Route (0.0.0.0/0 via Virtual Network). This is why your "Exfiltration Test" (pinging Google) worked—Azure handles the routing for you automatically.
 
 ------------------------------
-## Summary Checklist :
-
-* The "What": I built a two-tier network.
-* The "How": I used VNETs and NSGs to isolate the tiers.
-* The "Why": To prevent direct public access to sensitive data and enforce a secure management path (Pivoting).
 
 ## 🛡️ Level 1 Project: The Ghost Database
 Phase 1: Detailed Infrastructure Execution
@@ -144,5 +139,12 @@ Phase 1: Detailed Infrastructure Execution
 ![](../week-01/Pictures/lab1-16.png)
 
    4. Result: You are in. You have successfully "pivoted" through your secure tier.
+
+## Summary Checklist :
+
+* The "What": I built a two-tier network.
+* The "How": I used VNETs and NSGs to isolate the tiers.
+* The "Why": To prevent direct public access to sensitive data and enforce a secure management path (Pivoting).
+
 
 ------------------------------
