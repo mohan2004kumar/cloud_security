@@ -34,16 +34,16 @@ Before the vault is built, we need the "ground" to put it on.
    * Search for Resource Groups -> Click + Create.
       * Name: RG-Powerhouse-W2.
       * Region: Central India (or your preferred region).
-![](../week-01/Pictures/lab2-01.png)
+![](../week-02/Pictures/lab2-01.png)
    2. Create the Virtual Network (VNET):
    * Search for Virtual Networks -> Click + Create.
       * Name: VNET-Core-01.
-![](../week-01/Pictures/lab2-02.png)
+![](../week-02/Pictures/lab2-02.png)
       * IP Addresses Tab:
       * Change the address space to 10.1.0.0/16.
          * Click + Add subnet. Name it Subnet-DB with range 10.1.2.0/24.
       * Click Review + Create -> Create.
-![](../week-01/Pictures/lab2-03.png)
+![](../week-02/Pictures/lab2-03.png)
    
 ------------------------------
 ## Phase 2: The Storage Vault (The Resource)
@@ -58,7 +58,7 @@ We are creating the data container and hiding it from the public internet.
       * Networking Tab (CRITICAL STEP):
       * Network access: Select "Disable public access and use private endpoints".
       * Click Review + Create -> Create.
-![](../week-01/Pictures/lab2-04.png)   
+![](../week-02/Pictures/lab2-04.png)   
 
 ------------------------------
 ## Phase 3: The Private Tunnel (The Connectivity)
@@ -69,7 +69,7 @@ This connects your VNET directly to the hidden Storage Account.
    3. Click the Private endpoint connections tab at the top.
    4. Click + Private endpoint.
 
-![](../week-01/Pictures/lab2-05.png)   
+![](../week-02/Pictures/lab2-05.png)   
 
    5. Basics Tab: Name it pe-vault-link.
    6. Resource Tab: Ensure "Target sub-resource" is set to blob.
@@ -81,7 +81,7 @@ This connects your VNET directly to the hidden Storage Account.
       * (This ensures that when you type the storage name, it goes to the private IP 10.1.2.x and not the internet).
    9. Click Review + Create -> Create.
 
-![](../week-01/Pictures/lab2-06.png)   
+![](../week-02/Pictures/lab2-06.png)   
 
 ------------------------------
 ## Phase 4: The Identity Lock (The Security)
@@ -91,17 +91,17 @@ Now we tell Azure: "Only MY fingerprint opens this vault."
    * In the Storage Account, click Access Control (IAM) on the left.
       * Click + Add -> Add role assignment.
 
-![](../week-01/Pictures/lab2-07.png)   
+![](../week-02/Pictures/lab2-07.png)   
 
       * Search for the role: Storage Blob Data Contributor. (This is the specific "Key" for data).
 
-![](../week-01/Pictures/lab2-08.png)   
+![](../week-02/Pictures/lab2-08.png)   
 
       * Assign access to: User, group, or service principal.
       * Click + Select members and find your own email/account.
       * Click Review + assign.
 
-![](../week-01/Pictures/lab2-09.png)   
+![](../week-02/Pictures/lab2-09.png)   
 
    2. Disabling the "Backdoor" (The Final Lockdown):
    * In the Storage Account, click Configuration (under Settings).
@@ -109,7 +109,7 @@ Now we tell Azure: "Only MY fingerprint opens this vault."
       * Click Save.
       * Now the physical "Keys" are dead. Only your "Identity" (Fingerprint) works.
 
-![](../week-01/Pictures/lab2-10.png)   
+![](../week-02/Pictures/lab2-10.png)   
 
 ------------------------------
 ## Phase 5: The "Powerhouse" Validation (The Proof)
@@ -117,26 +117,26 @@ Now we tell Azure: "Only MY fingerprint opens this vault."
    1. Upload a File:
    * In the Storage Account, go to Containers -> + Container. Name it secret-data.
 
-![](../week-01/Pictures/lab2-11.png)   
+![](../week-02/Pictures/lab2-11.png)   
 
       * Upload any image or text file from your computer.
 
-![](../week-01/Pictures/lab2-12.png)   
+![](../week-02/Pictures/lab2-12.png)   
 
-![](../week-01/Pictures/lab2-13.png)   
+![](../week-02/Pictures/lab2-13.png)   
 
    2. Test 1 (The Internet Block):
    * Copy the URL of that uploaded file.
 
-![](../week-01/Pictures/lab2-14.png)   
+![](../week-02/Pictures/lab2-14.png)   
 
       * Open an Incognito Browser on your laptop and paste the URL.
       * Expected Result: You should get a 403 Forbidden error. (This proves the internet is blocked).
 
-![](../week-01/Pictures/lab2-15.png)   
+![](../week-02/Pictures/lab2-15.png)   
 
    3. Test 2 (The Identity Access):
    * Inside the Azure Portal (where you are logged in), go to Storage Browser -> Blob containers -> secret-data.
       * Expected Result: You can see and download the file. (This proves your Identity works).
    
-![](../week-01/Pictures/lab2-16.png)   
+![](../week-02/Pictures/lab2-16.png)   
